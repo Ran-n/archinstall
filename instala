@@ -1,0 +1,15 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	03/10/2020 11:36:53
+#+ Editado:	03/10/2020 11:52:10
+
+# Que distribución de teclado usa
+read -p "Distribución do teclado (? para lista): " teclado
+# axuda por se non sabe as distribucións
+[ $teclado == '?' ] && printf "\nLista:\n" && echo $(localectl list-keymaps)
+
+echo "Probando conexión a internet"
+ping -c 5 google.com
+
+read -p "Hai conexión?[S/n]: " conexion
+[ $conexion == 'n' ] && echo "Arranxa internet" && exit 1
